@@ -1,0 +1,29 @@
+generated: '2026-07-18'
+method: searched
+source: https://github.com/CyberGRX/api-examples/blob/master/HOW-TO.md
+docs: https://api.cybergrx.com/v1/swagger/
+summary:
+  types: [apiKey]
+  api_key_in: [header]
+  oauth2_flows: []
+notes: >-
+  The CyberGRX / ProcessUnity Global Risk Exchange (GRX) API authenticates with
+  a long-lived API token passed in the HTTP `Authorization` request header on
+  every call. Tokens are self-service: an account admin creates one under
+  "Manage my company user accounts" -> "Access Tokens" -> "Add a new token", and
+  the secret is shown only once at creation. The same token authorizes the v1,
+  bulk-v1, and v2 namespaces and the Swagger "Authorize" dialog. There is no
+  OAuth2/OIDC flow documented on the public surface.
+schemes:
+  - name: ApiToken
+    type: apiKey
+    in: header
+    parameter_name: Authorization
+    description: >-
+      Account-generated API token sent verbatim in the Authorization header
+      (not a Bearer prefix in the published examples). Provisioned in the GRX
+      user-management UI; Demo/Production credentials are provisioned by a GRX
+      representative.
+    sources:
+      - https://github.com/CyberGRX/api-examples/blob/master/HOW-TO.md
+      - https://github.com/CyberGRX/api-examples/blob/master/python_examples/order_assessments/order.py
