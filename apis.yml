@@ -1,8 +1,16 @@
 aid: cybergrx
 name: CyberGRX
-description: 'CyberGRX is a company surfaced as a portfolio company of bessemer-venture-partners, gv and
-  added to the API Evangelist network as a stub for enrichment. Sector: cybersecurity. This profile is
-  a lead awaiting the enrichment pipeline.'
+description: >-
+  CyberGRX is a third-party cyber risk management platform — the Global Risk
+  Exchange (GRX) — that helps organizations assess, monitor, and reduce risk
+  across their vendor and supplier ecosystem. It combines a shared library of
+  standardized vendor risk assessments with analytics for inherent and residual
+  risk, control gaps, and findings. CyberGRX was acquired by ProcessUnity in
+  2023 and is now delivered as the ProcessUnity Global Risk Exchange. It exposes
+  a versioned REST API (v1, bulk-v1, v2) authenticated with an account API token
+  passed in the Authorization header, including a Bulk API that returns an entire
+  third-party ecosystem — residual risk, control scores, and findings — in a
+  single request, plus first-party Python examples and Go/Splunk connectors.
 url: https://raw.githubusercontent.com/api-evangelist/cybergrx/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -11,13 +19,44 @@ x-backed-by:
 - gv
 x-tier: stub
 x-tier-reason: portfolio-lead
+x-acquired-by: processunity
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-18'
+image: https://avatars.githubusercontent.com/u/20931711?v=4
 tags:
 - Company
 - Cybersecurity
-apis: []
+- Third Party Risk
+- Vendor Risk Management
+- Risk Management
+- GRC
+- Security Assessment
+apis:
+- name: CyberGRX Global Risk Exchange API
+  description: >-
+    Versioned REST API for managing third-party cyber risk — search and create
+    third parties, answer inherent-risk scoping questions, apply tags, read
+    inherent and residual risk profiles, and bulk-export an entire ecosystem.
+  humanURL: https://api.cybergrx.com/v1/swagger/
+  baseURL: https://api.cybergrx.com
+  properties:
+  - type: APIReference
+    url: https://api.cybergrx.com/v1/swagger/
+  - type: Authentication
+    url: authentication/cybergrx-authentication.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -26,3 +65,38 @@ maintainers:
 common:
 - type: Website
   url: https://www.cybergrx.com/
+- type: APIReference
+  url: https://api.cybergrx.com/v1/swagger/
+- type: Documentation
+  url: https://www.processunity.com/cybergrx-product-guide/
+- type: GettingStarted
+  url: https://github.com/CyberGRX/api-examples/blob/master/HOW-TO.md
+- type: GitHubOrganization
+  url: https://github.com/CyberGRX
+- type: Support
+  url: https://processunity.zendesk.com/hc/en-us
+- type: Blog
+  url: https://www.processunity.com/resources/blogs/
+- type: Authentication
+  url: authentication/cybergrx-authentication.yml
+- type: Conventions
+  url: conventions/cybergrx-conventions.yml
+- type: DataModel
+  url: data-model/cybergrx-data-model.yml
+- type: Lifecycle
+  url: lifecycle/cybergrx-lifecycle.yml
+- type: Sandbox
+  url: sandbox/cybergrx-sandbox.yml
+- type: MCPServer
+  url: mcp/cybergrx-mcp.yml
+- type: LLMsTxt
+  url: llms/cybergrx-llms.txt
+- type: AgentSkill
+  url: skills/_index.yml
+- type: DomainSecurity
+  url: security/cybergrx-domain-security.yml
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

@@ -1,0 +1,25 @@
+generated: '2026-07-18'
+method: searched
+source: https://github.com/CyberGRX/api-examples
+versioning:
+  scheme: uri-path
+  versions: [v1, bulk-v1, v2]
+  current: v2
+  compatibility: >-
+    Documented as versioned with maintained backwards compatibility within a
+    version namespace ("The CyberGRX API and Bulk API are versioned and will
+    maintain backwards compatibility").
+  docs: https://api.cybergrx.com/v1/swagger/
+deprecation:
+  policy_url: null
+  sunset_header: null
+  note: No public deprecation policy or Sunset/Deprecation header support was found.
+sla:
+  url: null
+status_page: null
+deprecated_operations: []
+note: >-
+  CyberGRX was acquired by ProcessUnity (2023) and the product is now marketed
+  as the ProcessUnity Global Risk Exchange (GRX); the API host api.cybergrx.com
+  remains live. No public status page or deprecation policy is published on the
+  cybergrx.com surface.

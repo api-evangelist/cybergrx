@@ -1,0 +1,36 @@
+# CyberGRX (ProcessUnity Global Risk Exchange)
+
+> CyberGRX is a third-party cyber risk management platform — the Global Risk Exchange (GRX) — for assessing, monitoring, and reducing risk across a vendor ecosystem. Acquired by ProcessUnity in 2023, it is now marketed as the ProcessUnity Global Risk Exchange. It exposes a versioned REST API (v1, bulk-v1, v2) authenticated with an account API token, plus a Bulk API for pulling an entire ecosystem in one request.
+
+## APIs
+- [CyberGRX API (Swagger)](https://api.cybergrx.com/v1/swagger/): Paginated third-party risk API — search/create third parties, scoping, tagging.
+- [CyberGRX Bulk API (Swagger)](https://api.cybergrx.com/bulk-v1/swagger/): Retrieve an entire third-party ecosystem, residual risk, findings, and control scores in a single request.
+- [Demo API](https://demo-api.cybergrx.com/): Non-production environment for building and testing integrations.
+
+## Key operations
+- GET /v1/third-parties — list/search third parties (filter by name, limit)
+- POST /v1/third-parties — create a third party
+- PUT /v1/third-parties/{id}/scoping — answer inherent-risk profile questions
+- PUT /v1/third-parties/{id}/tagging — apply tags
+- GET /v2/portfolio/third-parties/{company_id}/risk-profile — inherent-risk profile
+- GET /bulk-v1/third-parties — bulk ecosystem export (residual risk, findings, scores)
+
+## Auth
+- API token sent in the `Authorization` header. Generate it in the GRX UI under Manage my company user accounts -> Access Tokens.
+
+## Docs & code
+- [API examples (first-party, GitHub)](https://github.com/CyberGRX/api-examples): Python integrations — order assessments, bulk export, tagging, scoping, control mapping.
+- [Bulk connector (GitHub)](https://github.com/CyberGRX/api-connector-bulk): Go reverse-proxy that removes pagination from the API.
+- [Splunk connector (GitHub)](https://github.com/CyberGRX/api-connector-splunk): Connect the CyberGRX API to Splunk.
+- [How-to guide](https://github.com/CyberGRX/api-examples/blob/master/HOW-TO.md): Retrieve an API token and use it in Swagger.
+- [API V2 User Guide](https://processunity.zendesk.com/hc/en-us/articles/34049522336283-API-V2-User-Guide): ProcessUnity Exchange V2 API guide.
+
+## Repo artifacts
+- authentication/cybergrx-authentication.yml — auth profile (apiKey / Authorization header)
+- conventions/cybergrx-conventions.yml — versioning, pagination, error/idempotency posture
+- data-model/cybergrx-data-model.yml — ThirdParty / InherentRiskProfile / ResidualRisk / Finding entities
+- lifecycle/cybergrx-lifecycle.yml — versioning and lifecycle posture
+- mcp/cybergrx-mcp.yml — candidate MCP tool list
+- sandbox/cybergrx-sandbox.yml — demo vs production environments
+- skills/ — agent skills for onboarding and bulk export
+- security/cybergrx-domain-security.yml — domain security probe

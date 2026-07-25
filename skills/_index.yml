@@ -1,0 +1,18 @@
+generated: '2026-07-18'
+method: generated
+source: https://github.com/CyberGRX/api-examples
+skills:
+  - file: cybergrx-onboard-third-party.md
+    name: Onboard and profile a third party
+    api: https://api.cybergrx.com/v1/swagger/
+    operations:
+      - "GET /v1/third-parties"
+      - "POST /v1/third-parties"
+      - "PUT /v1/third-parties/{id}/scoping"
+      - "PUT /v1/third-parties/{id}/tagging"
+  - file: cybergrx-export-ecosystem-risk.md
+    name: Export ecosystem residual risk in bulk
+    api: https://api.cybergrx.com/bulk-v1/swagger/
+    operations:
+      - "GET /bulk-v1/third-parties"
+      - "GET /v2/portfolio/third-parties/{company_id}/risk-profile"

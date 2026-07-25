@@ -1,0 +1,72 @@
+generated: '2026-07-18'
+method: derived
+source: >-
+  https://github.com/CyberGRX/api-examples (bulk export response shapes and
+  operation payloads observed in first-party Python examples)
+note: >-
+  Derived from the response structures the first-party api-examples code reads
+  (glom paths against /bulk-v1/third-parties) and the request payloads it writes
+  (/v1/third-parties, .../scoping, .../tagging). No OpenAPI schema was available
+  (the Swagger surface is credential-gated), so field lists are the observed
+  subset, not the complete schema.
+entities:
+  - name: ThirdParty
+    description: >-
+      A vendor / third party in a customer's risk ecosystem. Created and
+      searched via /v1/third-parties; enumerated in bulk via /bulk-v1/third-parties.
+    fields:
+      - name
+      - custom_id
+      - url
+      - address (city, country)
+      - tags
+    relationships:
+      - has_one: InherentRiskProfile
+        via: scoping
+      - has_one: ResidualRisk
+        via: residual_risk
+  - name: InherentRiskProfile
+    description: >-
+      Worst-case ("all controls fail/missing") risk view for a third party,
+      derived from scoping answers and assessment tier. Set via
+      PUT /v1/third-parties/{id}/scoping; read via
+      GET /v2/portfolio/third-parties/{company_id}/risk-profile.
+    fields:
+      - tier
+      - validated
+      - answers (Least | Minimal | Moderate | Significant)
+    relationships:
+      - belongs_to: ThirdParty
+        via: third_party_id
+  - name: ResidualRisk
+    description: >-
+      The authorized residual-risk report for a third party (risk remaining
+      after observed controls). Returned inside each third party in bulk export.
+    fields:
+      - date
+      - tier
+      - scores
+      - findings
+      - residual_risk_outcomes
+    relationships:
+      - belongs_to: ThirdParty
+        via: residual_risk
+      - has_many: Finding
+        via: findings
+      - has_many: ControlScore
+        via: scores
+  - name: Finding
+    description: A gap / finding within a residual-risk report.
+    relationships:
+      - belongs_to: ResidualRisk
+        via: findings
+  - name: ControlScore
+    description: A per-control score within a residual-risk report.
+    relationships:
+      - belongs_to: ResidualRisk
+        via: scores
+  - name: Tag
+    description: Customer-applied label on a third party. Set via PUT /v1/third-parties/{id}/tagging.
+    relationships:
+      - belongs_to: ThirdParty
+        via: tags

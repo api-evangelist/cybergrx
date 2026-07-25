@@ -1,0 +1,24 @@
+generated: '2026-07-18'
+method: searched
+source: https://demo-api.cybergrx.com/
+environments:
+  - name: Demo
+    base_url: https://demo-api.cybergrx.com/
+    docs: https://demo-api.cybergrx.com/
+    description: >-
+      Non-production Global Risk Exchange environment for building and testing
+      integrations.
+  - name: Production
+    base_url: https://api.cybergrx.com/
+    docs: https://api.cybergrx.com/v1/swagger/
+credentials:
+  provisioning: >-
+    Credentials for the Demo and Production environments are provisioned by a
+    GRX (ProcessUnity) representative; account admins then generate API tokens
+    under user management. No self-serve public test key or magic test values
+    are published.
+  self_serve_test_values: false
+note: >-
+  A separate demo API host exists (demo-api.cybergrx.com) providing a live/demo
+  separation, but access requires provisioned credentials. No published test
+  fixtures, magic identifiers, or test tokens were found (nothing fabricated).
