@@ -1,35 +1,38 @@
 generated: '2026-07-18'
 method: derived
 status: candidate
-source: >-
-  Derived from documented first-party endpoints in
-  https://github.com/CyberGRX/api-examples and
-  https://api.cybergrx.com/v1/swagger/ . No official hosted MCP server was found
-  for CyberGRX / ProcessUnity Global Risk Exchange as of this pass.
+source: Derived from documented first-party endpoints in https://github.com/CyberGRX/api-examples and
+  https://api.cybergrx.com/v1/swagger/ . No official hosted MCP server was found for CyberGRX / ProcessUnity
+  Global Risk Exchange as of this pass.
 server:
   name: cybergrx
   transport: http
   url: null
-note: >-
-  Candidate tool list mapped one-to-one onto the documented HTTP operations
-  (operationIds are not published on the public surface, so tools are named
-  after method+path). Requires the account API token in the Authorization header.
+note: Candidate tool list mapped one-to-one onto the documented HTTP operations (operationIds are not
+  published on the public surface, so tools are named after method+path). Requires the account API token
+  in the Authorization header.
 tools:
-  - name: list_third_parties
-    description: Search / list third parties in the ecosystem (filter by name, limit results).
-    source_operation: "GET https://api.cybergrx.com/v1/third-parties"
-  - name: create_third_party
-    description: Add a new third party (vendor) to the ecosystem.
-    source_operation: "POST https://api.cybergrx.com/v1/third-parties"
-  - name: set_inherent_risk_scoping
-    description: Answer a third party's inherent-risk profile (scoping) questions.
-    source_operation: "PUT https://api.cybergrx.com/v1/third-parties/{id}/scoping"
-  - name: tag_third_party
-    description: Apply tags to a third party.
-    source_operation: "PUT https://api.cybergrx.com/v1/third-parties/{id}/tagging"
-  - name: get_risk_profile
-    description: Retrieve a third party's inherent-risk profile.
-    source_operation: "GET https://api.cybergrx.com/v2/portfolio/third-parties/{company_id}/risk-profile"
-  - name: bulk_export_third_parties
-    description: Retrieve the entire third-party ecosystem (residual risk, findings, scores) in one request.
-    source_operation: "GET https://api.cybergrx.com/bulk-v1/third-parties"
+- name: list_third_parties
+  description: Search / list third parties in the ecosystem (filter by name, limit results).
+  source_operation: GET https://api.cybergrx.com/v1/third-parties
+- name: create_third_party
+  description: Add a new third party (vendor) to the ecosystem.
+  source_operation: POST https://api.cybergrx.com/v1/third-parties
+- name: set_inherent_risk_scoping
+  description: Answer a third party's inherent-risk profile (scoping) questions.
+  source_operation: PUT https://api.cybergrx.com/v1/third-parties/{id}/scoping
+- name: tag_third_party
+  description: Apply tags to a third party.
+  source_operation: PUT https://api.cybergrx.com/v1/third-parties/{id}/tagging
+- name: get_risk_profile
+  description: Retrieve a third party's inherent-risk profile.
+  source_operation: GET https://api.cybergrx.com/v2/portfolio/third-parties/{company_id}/risk-profile
+- name: bulk_export_third_parties
+  description: Retrieve the entire third-party ecosystem (residual risk, findings, scores) in one request.
+  source_operation: GET https://api.cybergrx.com/bulk-v1/third-parties
+deployment:
+  mode: none
+  verified: derived
+  tools: 6
+  checked: '2026-08-12'
+  source: catalog MCP census
