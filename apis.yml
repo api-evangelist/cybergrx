@@ -52,8 +52,7 @@ image: https://avatars.githubusercontent.com/u/20931711?v=4
 tags:
 - Company
 - Cybersecurity
-- Third-Party Risk
-- Vendor Risk Management
+- Third-Party Risk Management
 - Risk Management
 - GRC
 - Security Assessment
@@ -65,6 +64,7 @@ tags_raw:
 - Risk Management
 - GRC
 - Security Assessment
+- Third-Party Risk
 apis:
 - name: CyberGRX Global Risk Exchange API
   description: >-
